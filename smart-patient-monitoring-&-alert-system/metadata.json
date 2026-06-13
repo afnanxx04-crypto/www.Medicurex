@@ -1,0 +1,6 @@
+{
+  "name": "Medicurex",
+  "description": "Premium health care monitoring system for private patient care, drug dosage tracking, live vitals analysis, and clinical reporting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

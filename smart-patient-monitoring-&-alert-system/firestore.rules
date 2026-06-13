@@ -1,0 +1,28 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Top-level catch-all block to prevent random database access.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Patient configurations and nested tracks
+    match /patients/{patientId} {
+      allow get, list, read: if true;
+      allow create, update: if true;
+      allow delete: if false;
+
+      match /labReports/{reportId} {
+        allow read, write: if true;
+      }
+
+      match /medicationSchedules/{scheduleId} {
+        allow read, write: if true;
+      }
+
+      match /dosageRecords/{recordId} {
+        allow read, write: if true;
+      }
+    }
+  }
+}
